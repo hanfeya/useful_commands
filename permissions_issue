@@ -1,0 +1,13 @@
+????????????    no permissions时，
+sudo su
+#which adb
+
+#cd adb_path   //进入adb的路径下
+
+#sudo su
+
+#./adb kill-server
+
+#./adb start-server
+
+#./adb devices
