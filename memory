@@ -1,0 +1,3 @@
+# useful_commands
+adb shell dumpsys meminfo
+Applications Memory Usage (kB):
