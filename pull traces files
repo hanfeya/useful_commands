@@ -1,0 +1,24 @@
+#coding=utf-8
+#!/usr/bin/env python
+
+import os,commands,time
+
+def getTrace():
+    #print "Try to get traces.txt from /data/anr/:"
+    os.system("adb -s BAO7NNIBIRYLY5V4 pull /data/anr/traces.txt ./")
+    if os.path.exists("traces.txt"):
+        dif=commands.getoutput("diff traces.txt old.txt")
+        if len(dif)>0:
+            name=str(int(time.time()))
+            os.system("cp traces.txt %s.txt"%name)
+            os.system("rm old.txt")
+            os.system("mv traces.txt old.txt")
+            
+
+
+if not os.path.exists("old.txt"):
+    os.system("echo 'test' > old.txt")
+            
+while(True):    
+    getTrace()
+    time.sleep(60)
